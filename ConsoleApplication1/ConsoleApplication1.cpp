@@ -20,12 +20,30 @@ ________________________________________________________________________________
 #include <iostream>
 
 using namespace std;
+//#define INT1
+
+#ifdef INT1
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	
+	//Ctrl+K+S   Запихивает в структуру/цикл
+	while (true)
+	{
+		cout << "Hello World!\n";
+	}
+
+}
+#endif 
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	cout << "Hello World!\n";
+
+	while (true)
+	{
+		cout << "Hello World!\n";
+	}
+	main();
 
 }
-
-
