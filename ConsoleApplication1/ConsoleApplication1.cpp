@@ -29,9 +29,19 @@ using namespace std;
 //#define FACTORIAL
 //#define STEPEN
 
+////////////////
+#define HOMEWORK
+////////////////
+
 void elevator(int floor);
 int factorial(int n);
 double power(double n, int step);
+
+
+#ifdef HOMEWORK
+int fibonachi_i(int n);
+int fibonachi_n(int n, int i);
+#endif // HOMEWORK
 
 
 #ifdef INT1
@@ -117,5 +127,41 @@ double power(double n, int step)
 
 int main()
 {
+	setlocale(LC_ALL, "ru");
+	cout << "1) Число фибоначи по заданому порядковому номеру\n"
+		<< "2) Ближайшее число фибоначи меньше заданного\n";
+	switch (_getch())
+	{
+	case '1':
+	{
+		system("cls");
+		int n = 0;
+		cout << "Введите какое по счету число фибоначи вы хотите получить?\n"; cin >> n;
+		cout << fibonachi_i(n);
+		break;
+	}
+	case '2':
+	{
+		system("cls");
+		int n = 0;
+		cout << "Введите меньше какого числа вы хотите получить ближайшое число фибоначи?\n"; cin >> n;
+		cout << fibonachi_n(n,1);
+		break;
+	}
+	default:
+	{
+		system("cls");
+		main();
+	}
+	}
+	
+}
+int fibonachi_i(int n)
+{   
+	return n == 1 || n == 2 ? 1 : fibonachi_i(n - 1) + fibonachi_i(n - 2);
+}
 
+int fibonachi_n(int n, int i)
+{
+	return fibonachi_i(i) < n ? fibonachi_n(n,++i) : fibonachi_i(--i);
 }
