@@ -125,6 +125,7 @@ double power(double n, int step)
 }
 #endif // STEPEN
 
+#ifdef HOMEWORK
 int main()
 {
 	setlocale(LC_ALL, "ru");
@@ -145,7 +146,7 @@ int main()
 		system("cls");
 		int n = 0;
 		cout << "Введите меньше какого числа вы хотите получить ближайшое число фибоначи?\n"; cin >> n;
-		cout << fibonachi_n(n,1);
+		cout << fibonachi_n(n, 1);
 		break;
 	}
 	default:
@@ -154,14 +155,15 @@ int main()
 		main();
 	}
 	}
-	
+
 }
 int fibonachi_i(int n)
-{   
+{
 	return n == 1 || n == 2 ? 1 : fibonachi_i(n - 1) + fibonachi_i(n - 2);
 }
 
 int fibonachi_n(int n, int i)
 {
-	return fibonachi_i(i) < n ? fibonachi_n(n,++i) : fibonachi_i(--i);
+	return fibonachi_i(i) < n ? fibonachi_n(n, ++i) : fibonachi_i(--i);
 }
+#endif // HOMEWORK
